@@ -1,7 +1,9 @@
 .slideshow {
   margin: 0 auto;
   overflow: hidden;
-  max-width: 500px;
+  padding-left: 5px;
+  padding-right: 5px;
+  max-width: 1500px;
 }
 
 .slideshowSlider {
@@ -17,16 +19,14 @@
   border-radius: 40px;
 }
 
-/* Buttons */
-
 .slideshowDots {
   text-align: center;
 }
 
 .slideshowDot {
   display: inline-block;
-  height: 20px;
-  width: 20px;
+  height: 10px;
+  width: 10px;
   border-radius: 50%;
 
   cursor: pointer;

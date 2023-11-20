@@ -1,8 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../styles/carousel.css";
 
 const colors = ["#0088FE", "#00C49F", "#FFBB28"];
-const delay = 2500;
+const delay = 3500;
 
 function Carousel() {
   const [index, setIndex] = useState(0);
@@ -14,7 +14,7 @@ function Carousel() {
     }
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     resetTimeout();
     timeoutRef.current = setTimeout(
       () =>
@@ -30,7 +30,7 @@ function Carousel() {
   }, [index]);
 
   return (
-    <div className="slideshow">
+    <div className="slideshow mt-5 z-0">
       <div
         className="slideshowSlider"
         style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}

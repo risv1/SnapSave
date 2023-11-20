@@ -1,7 +1,7 @@
 import { FC, useRef, FormEvent } from "react";
 import { Link } from "@remix-run/react";
-import ProfileSheet from "./ProfileSheet";
-import Menu from "./Menu";
+import ProfileSheet from "./nav-ui/ProfileSheet";
+import Menu from "./nav-ui/Menu";
 
 const Navbar: FC = ({}) => {
   const searchRef = useRef<HTMLInputElement>(null);
@@ -15,10 +15,10 @@ const Navbar: FC = ({}) => {
   };
 
   return (
-    <div className="bg-white shadow-md sticky h-20 z-1 flex justify-between items-center flex-row">
+    <div className="z-10 bg-white shadow-md sticky h-20 z-1 flex justify-between items-center flex-row">
       <div className="p-5 ml-8 flex flex-row items-center gap-10">
         <Link to="/" className="text-3xl font-semibold text-black mb-1 p-3">
-          Snap<span className="text-red-500">Seats</span>
+          Snap<span className="text-red-500">Seat</span>
         </Link>
         <form onSubmit={handleSearch} className="flex-grow ">
           <input
