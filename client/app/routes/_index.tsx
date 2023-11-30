@@ -4,6 +4,7 @@ import Navbar from "~/components/Navbar";
 import Carousel from "~/components/Carousel";
 import Movies from "~/components/sections/Movies";
 import Sports from "~/components/sections/Sports";
+
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: "../styles/main.css" }];
 };
@@ -11,7 +12,7 @@ export const links: LinksFunction = () => {
 const HomePage: FC = () => {
   return (
     <>
-      <div className="overflow-hidden">
+      <div className="overflow-hidden bg-neutral-200">
         <Navbar />
         <Carousel />
         <div id="movies" className="p-3">

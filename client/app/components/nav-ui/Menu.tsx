@@ -16,14 +16,14 @@ const Menu = () => {
             <NavigationMenuTrigger className="text-xl">
               Movies
             </NavigationMenuTrigger>
-            <NavigationMenuContent className="absolute z-10">
-              <ul className="list-none p-0 m-0">
-                <li>
+            <NavigationMenuContent className="absolute z-10 w-40">
+              <ul className="list-none p-0 m-0 w-40 h-20 gap-2 mt-2">
+                <li className="ml-3 hover:bg-gray-200 pr-1">
                   <NavigationMenuLink>
-                    <Link to="#movies">Recommended Movies</Link>
+                    <Link to="/#movies">Recommended Movies</Link>
                   </NavigationMenuLink>
                 </li>
-                <li>
+                <li className="ml-3 hover:bg-gray-200 pr-1">
                   <NavigationMenuLink>
                     <Link to="/movies">All Movies</Link>
                   </NavigationMenuLink>
@@ -35,14 +35,14 @@ const Menu = () => {
             <NavigationMenuTrigger className="text-xl">
               Sports
             </NavigationMenuTrigger>
-            <NavigationMenuContent className="absolute z-10">
-              <ul className="list-none p-0 m-0">
-                <li>
+            <NavigationMenuContent className="absolute z-10 w-40">
+              <ul className="list-none p-0 m-0 w-40 h-20 gap-2 mt-2">
+                <li className="ml-3 hover:bg-gray-200 pr-1">
                   <NavigationMenuLink>
-                    <Link to="#sports">Recommended Sports</Link>
+                    <Link to="/#sports">Recommended Sports</Link>
                   </NavigationMenuLink>
                 </li>
-                <li>
+                <li className="ml-3 hover:bg-gray-200 pr-1">
                   <NavigationMenuLink>
                     <Link to="/sports">All Sports</Link>
                   </NavigationMenuLink>

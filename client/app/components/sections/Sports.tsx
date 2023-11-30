@@ -1,25 +1,9 @@
 import React, { useState } from "react";
-import { SportLinks } from "~/images/links";
+import { sports } from "~/components/layouts/links";
 import left from "../../images/chevron-left.svg";
 import right from "../../images/chevron-right.svg";
+import { useNavigate } from "@remix-run/react";
 import { Link } from "@remix-run/react";
-
-interface Sport {
-  id: number;
-  src: any;
-  alt: string;
-}
-
-const sports: Sport[] = [
-  { id: 1, src: SportLinks[1], alt: "Image 1" },
-  { id: 2, src: SportLinks[2], alt: "Image 2" },
-  { id: 3, src: SportLinks[3], alt: "Image 3" },
-  { id: 4, src: SportLinks[4], alt: "Image 4" },
-  { id: 5, src: SportLinks[5], alt: "Image 5" },
-  { id: 6, src: SportLinks[6], alt: "Image 6" },
-  { id: 7, src: SportLinks[7], alt: "Image 7" },
-  { id: 8, src: SportLinks[8], alt: "Image 8" },
-];
 
 const Movies: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -32,6 +16,11 @@ const Movies: React.FC = () => {
       setScrollPosition(newScrollPosition);
     }
   };
+
+  const goToSport = useNavigate();
+  const handleSportRoute = (id: number) =>{
+    goToSport(`/sports/${id}`);
+  }
 
   return (
     <div>
@@ -50,6 +39,7 @@ const Movies: React.FC = () => {
             src={sport.src}
             alt={sport.alt}
             className="rounded-xl w-60 h-48"
+            onClick={()=>{handleSportRoute(sport.id)}}
           />
         ))}
       </div>

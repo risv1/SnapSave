@@ -1,25 +1,8 @@
 import React, { useState } from "react";
-import { MovieLinks } from "~/images/links";
+import { movies } from "~/components/layouts/links";
 import left from "../../images/chevron-left.svg";
 import right from "../../images/chevron-right.svg";
-import { Link } from "@remix-run/react";
-
-interface Movie {
-  id: number;
-  src: any;
-  alt: string;
-}
-
-const movies: Movie[] = [
-  { id: 1, src: MovieLinks[1], alt: "Image 1" },
-  { id: 2, src: MovieLinks[2], alt: "Image 2" },
-  { id: 3, src: MovieLinks[3], alt: "Image 3" },
-  { id: 4, src: MovieLinks[4], alt: "Image 4" },
-  { id: 5, src: MovieLinks[5], alt: "Image 5" },
-  { id: 6, src: MovieLinks[6], alt: "Image 6" },
-  { id: 7, src: MovieLinks[7], alt: "Image 7" },
-  { id: 8, src: MovieLinks[8], alt: "Image 8" },
-];
+import { Link, useNavigate } from "@remix-run/react";
 
 const Movies: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -32,6 +15,11 @@ const Movies: React.FC = () => {
       setScrollPosition(newScrollPosition);
     }
   };
+
+  const goToMovie = useNavigate();
+  const handleMovieRoute = (id: number) =>{
+    goToMovie(`/movies/${id}`);
+  }
 
   return (
     <div>
@@ -50,6 +38,7 @@ const Movies: React.FC = () => {
             src={movie.src}
             alt={movie.alt}
             className="rounded-xl w-40 h-30"
+            onClick={()=>handleMovieRoute(movie.id)}
           />
         ))}
       </div>
