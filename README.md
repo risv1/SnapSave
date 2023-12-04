@@ -1,9 +1,5 @@
 # SnapSave
-
-Frontend:
-  -> Remix.js
-  -> Tailwind
-
-Backend:
-  -> Express.js
+  -> Remix.js\
+  -> Tailwind\
+  -> Express.js\
   -> MongoDB
