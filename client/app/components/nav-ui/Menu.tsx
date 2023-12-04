@@ -31,7 +31,7 @@ const Menu = () => {
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
-          <NavigationMenuItem>
+          <NavigationMenuItem className="pl-5">
             <NavigationMenuTrigger className="text-xl">
               Sports
             </NavigationMenuTrigger>
@@ -48,14 +48,6 @@ const Menu = () => {
                   </NavigationMenuLink>
                 </li>
               </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className="text-xl">
-              Streams
-            </NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuLink>Link</NavigationMenuLink>
             </NavigationMenuContent>
           </NavigationMenuItem>
         </NavigationMenuList>

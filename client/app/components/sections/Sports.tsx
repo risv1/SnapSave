@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { sports } from "~/components/layouts/links";
+import { sports } from "~/components/assets/links";
 import left from "../../images/chevron-left.svg";
 import right from "../../images/chevron-right.svg";
 import { useNavigate } from "@remix-run/react";
@@ -38,7 +38,7 @@ const Movies: React.FC = () => {
             key={sport.id}
             src={sport.src}
             alt={sport.alt}
-            className="rounded-xl w-60 h-48"
+            className="rounded-xl w-60 h-48 border-4 ease-in-out duration-200 hover:border-red-500"
             onClick={()=>{handleSportRoute(sport.id)}}
           />
         ))}

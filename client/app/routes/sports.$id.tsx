@@ -1,6 +1,6 @@
 import React from "react";
-import { useParams } from "react-router";
-import { sports } from "~/components/layouts/links";
+import { sports } from "~/components/assets/links";
+import { useNavigate, useParams } from "@remix-run/react";
 
 const sport: React.FC = () => {
   const { id } = useParams();
@@ -9,6 +9,11 @@ const sport: React.FC = () => {
 
   if (!sport) {
     return <div className="text-4xl flex justify-center">Sport not found</div>;
+  }
+
+  const goTo = useNavigate();
+  const handleRoute = () => {
+    goTo(-1);
   }
 
   return (
@@ -21,6 +26,12 @@ const sport: React.FC = () => {
             className="rounded-xl border-8 border-red-500 w-96 h-80 ml-5"
           />
         </div>
+        <button
+          className="bg-black border-red-500 text-red-500 absolute top-14 right-14 mr-3 mt-2"
+          onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleRoute()}
+        >
+          Back
+        </button>
       </div>
     </div>
   );

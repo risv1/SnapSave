@@ -23,14 +23,14 @@ const Navbar: FC = ({}) => {
     <div className="z-10 bg-indigo-700 shadow-md sticky h-20 z-1 flex justify-between items-center flex-row">
       <div className="p-5 ml-8 flex flex-row items-center gap-10">
         <Link to="/" className="text-3xl font-semibold text-white mb-1 p-3">
-          Snap<span className="text-red-500">Seat</span>
+          Snap<span className="text-red-500">Save</span>
         </Link>
         <form onSubmit={handleSearch} className="flex-grow ">
           <input
             type="text"
             ref={searchRef}
             className="rounded h-10 border border-slate-300 pl-2 pr-20 text-xl w-"
-            placeholder="Search for Available Events"
+            placeholder="Search"
           />
         </form>
         <Menu />

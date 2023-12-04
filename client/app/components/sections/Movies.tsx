@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { movies } from "~/components/layouts/links";
+import { movies } from "~/components/assets/links";
 import left from "../../images/chevron-left.svg";
 import right from "../../images/chevron-right.svg";
 import { Link, useNavigate } from "@remix-run/react";
@@ -37,7 +37,7 @@ const Movies: React.FC = () => {
             key={movie.id}
             src={movie.src}
             alt={movie.alt}
-            className="rounded-xl w-40 h-30"
+            className="rounded-xl w-40 h-30 ease-in-out duration-200 border-4 hover:border-red-500"
             onClick={()=>handleMovieRoute(movie.id)}
           />
         ))}
