@@ -1,5 +1,5 @@
 # SnapSave
   -> Remix.js\
   -> Tailwind\
-  -> Express.js\
-  -> MongoDB
+  -> Go Fiber\
+  -> MySQL
