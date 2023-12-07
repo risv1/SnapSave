@@ -14,10 +14,18 @@ func Setup(app *fiber.App) {
 
 	app.Post("/api/logout", controllers.Logout)
 
+	app.Get("/api/movies", controllers.ViewMovies)
+
+	app.Get("/api/movies/:id", controllers.ViewMovieByID)
+
+	app.Get("api/sports", controllers.ViewSports)
+
+	app.Get("/api/sports/:id", controllers.ViewSportByID)
+
 	//Admin Endpoints
 	app.Post("/api/admin/add-movie", controllers.AddMovie)
 
-	app.Get("/api/admin/movies", controllers.ViewMovies)
+	app.Post("/api/admin/add-sport", controllers.AddSport)
 
 	app.Get("/api/admin/users", controllers.ViewUsers)
 }

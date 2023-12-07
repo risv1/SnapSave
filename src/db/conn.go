@@ -39,4 +39,6 @@ func Connect() {
 	connection.AutoMigrate(&models.User{})
 
 	connection.AutoMigrate(&models.Movie{})
+
+	connection.AutoMigrate(&models.Sport{})
 }
