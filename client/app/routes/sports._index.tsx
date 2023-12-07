@@ -1,9 +1,21 @@
 import { useNavigate } from "@remix-run/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "~/components/Navbar";
-import { sports } from "~/components/assets/links";
+import { SportType, fetchSports } from "~/components/utils/sports";
 
 const SportsPage: React.FC = () => {
+
+  const [sports, setSports] = useState<SportType[]>([]);
+
+  const fetchData = async () => {
+    const sportsData = await fetchSports();
+    setSports(sportsData);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const goToSport = useNavigate();
 
   const handleSportRoute = (id: number) => {
@@ -24,7 +36,7 @@ const SportsPage: React.FC = () => {
               onClick={() => handleSportRoute(sport.id)}
             />
             <div className="flex flex-col items-center ml-3">
-              <h1 className="text-3xl">Sport Title</h1>
+              <h1 className="text-3xl">{sport.name}</h1>
             </div>
           </div>
         ))}

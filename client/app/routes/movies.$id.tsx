@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { movies } from "~/components/assets/links";
+import { fetchMovie, MovieType } from "~/components/utils/movies";
 
 const Movie: React.FC = () => {
   const { id } = useParams();
-  const movie = movies.find((movie) => movie.id === Number(id));
+  const movieId = id ? parseInt(id, 10) : 0;
+
+  const [movie, setMovie] = useState<MovieType | null>(Object)
+
+  const fetchData = async () => {
+    const movieData = await fetchMovie(movieId);
+    setMovie(movieData);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   if (!movie) {
     return <div className="text-4xl flex justify-center">Movie not found</div>;
@@ -24,10 +35,9 @@ const Movie: React.FC = () => {
             className="rounded-xl border-8 border-red-500 w-64 h-96 ml-5"
           />
         <div className="flex flex-col items-center ml-10 mr-10">
-                <h1 className="text-4xl">Movie Title</h1>
+                <h1 className="text-4xl">{movie.name}</h1>
                 <hr />
-                <p className="text-xl mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, reiciendis soluta? Repellendus omnis similique fugiat alias voluptas assumenda. Doloribus quam at, dolor eos consequuntur autem. Accusantium quaerat culpa consectetur harum!
-                Culpa similique quis officiis provident ipsum quae quibusdam cum, quod illo iusto illum pariatur at, recusandae reprehenderit corporis. Deleniti molestiae, magnam quidem doloremque dolores dignissimos! Maxime non modi corporis laudantium.</p>
+                <p className="text-xl mt-5">{movie.description}</p>
               </div>
           </div>
         <button

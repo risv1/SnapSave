@@ -1,11 +1,21 @@
-import React from "react";
-import { sports } from "~/components/assets/links";
-import { useNavigate, useParams } from "@remix-run/react";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
+import { fetchSport , SportType } from "~/components/utils/sports";
 
-const sport: React.FC = () => {
+const Sport: React.FC = () => {
   const { id } = useParams();
+  const sportId = id ? parseInt(id, 10) : 0;
 
-  const sport = sports.find((sport) => sport.id === Number(id));
+  const [sport, setSport] = useState<SportType | null>(Object)
+
+  const fetchData = async () => {
+    const sportData = await fetchSport(sportId);
+    setSport(sportData);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   if (!sport) {
     return <div className="text-4xl flex justify-center">Sport not found</div>;
@@ -14,7 +24,7 @@ const sport: React.FC = () => {
   const goTo = useNavigate();
   const handleRoute = () => {
     goTo(-1);
-  }
+  };
 
   return (
     <div className="bg-neutral-300 w-full h-full fixed flex items-center justify-center">
@@ -37,4 +47,4 @@ const sport: React.FC = () => {
   );
 };
 
-export default sport;
+export default Sport;

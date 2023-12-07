@@ -1,9 +1,21 @@
 import { useNavigate } from "@remix-run/react";
-import React from "react";
-import { movies } from "~/components/assets/links";
+import React, { useEffect, useState } from "react";
 import Navbar from "~/components/Navbar";
+import { MovieType, fetchMovies } from "~/components/utils/movies";
 
 const MoviesPage: React.FC = () => {
+
+  const [movies, setMovies] = useState<MovieType[]>([]);
+
+  const fetchData = async () => {
+    const moviesData = await fetchMovies();
+    setMovies(moviesData);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const goToMovie = useNavigate();
 
   const handleMovieRoute = (id: number) => {
@@ -24,7 +36,7 @@ const MoviesPage: React.FC = () => {
               onClick={() => handleMovieRoute(movie.id)}
             />
             <div className="flex flex-col items-center ml-3">
-              <h1 className="text-3xl">Movie Title</h1>
+              <h1 className="text-3xl">{movie.name}</h1>
             </div>
           </div>
         ))}
