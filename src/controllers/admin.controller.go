@@ -68,3 +68,22 @@ func ViewUsers(c *fiber.Ctx) error {
 
 	return c.JSON(users)
 }
+
+// func EditUser(c *fiber.Ctx) error {
+// 	var user models.User
+
+// 	db.DB.Find(&user)
+// }
+
+// func EditMovie(c *fiber.Ctx) error {
+// 	var movie models.Movie
+
+// 	db.DB.Find(&movie)
+// }
+
+// func EditSport(c *fiber.Ctx) error {
+// 	var movie models.Sport
+
+// 	db.DB.Find(&sport)
+// }
+

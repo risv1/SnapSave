@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"os"
 	"snap_save/src/db"
 	"snap_save/src/models"
 	"strconv"
@@ -10,7 +11,8 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-const SecretKey = "secret"
+var SecretKey = os.Getenv("JWT_SECRET_KEY")
+var AdminEmail = os.Getenv("ADMIN_EMAIL")
 
 func Register(c *fiber.Ctx) error {
 	var data map[string]string
@@ -23,10 +25,16 @@ func Register(c *fiber.Ctx) error {
 
 	password, _ := bcrypt.GenerateFromPassword([]byte(data["password"]), 14)
 
+	role := "user"
+	if data["email"] == AdminEmail {
+		role = "admin"
+	}
+
 	user := models.User{
 		Name: 		data["name"],
 		Email: 		data["email"],
 		Password: 	password,
+		Role: role,
 	}
 
 	db.DB.Create(&user)
