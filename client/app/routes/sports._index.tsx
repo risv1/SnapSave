@@ -1,7 +1,7 @@
 import { useNavigate } from "@remix-run/react";
 import React, { useEffect, useState } from "react";
 import Navbar from "~/components/Navbar";
-import { SportType, fetchSports } from "~/components/utils/sports";
+import { SportType, fetchSports } from "~/utils/sports";
 
 const SportsPage: React.FC = () => {
 

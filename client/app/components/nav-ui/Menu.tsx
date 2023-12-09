@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -7,7 +8,24 @@ import {
   NavigationMenuTrigger,
 } from "../ui/navigation-menu";
 import { Link } from "@remix-run/react";
+import { checkUserRole } from "~/utils/users";
+
 const Menu = () => {
+
+  const [isAdmin, setIsAdmin] = useState(false)
+
+  useEffect(()=>{
+    const fetchUserData = async() => {
+      try{
+        const userIsAdmin = await checkUserRole()
+        setIsAdmin(userIsAdmin)
+      }catch(error){
+        console.error("Error: ", error)
+      }
+    }
+    fetchUserData()
+  }, [])
+
   return (
     <div className="z-10">
       <NavigationMenu>
@@ -50,6 +68,32 @@ const Menu = () => {
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
+          {isAdmin &&
+          <NavigationMenuItem className="pl-5">
+            <NavigationMenuTrigger className="text-xl">
+              Admin
+            </NavigationMenuTrigger>
+            <NavigationMenuContent className="absolute z-10 w-40">
+              <ul className="list-none p-0 m-0 w-40 h-20 gap-2 mt-2">
+              <li className="ml-3 hover:bg-gray-200 pr-1">
+                  <NavigationMenuLink>
+                    <Link to="/admin/movies">Manage Movies</Link>
+                  </NavigationMenuLink>
+                </li>
+                <li className="ml-3 hover:bg-gray-200 pr-1">
+                  <NavigationMenuLink>
+                    <Link to="/admin/sports">Manage Sports</Link>
+                  </NavigationMenuLink>
+                </li>
+                <li className="ml-3 hover:bg-gray-200 pr-1">
+                  <NavigationMenuLink>
+                    <Link to="/admin/users">Manage Users</Link>
+                  </NavigationMenuLink>
+                </li>
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        }
         </NavigationMenuList>
       </NavigationMenu>
     </div>

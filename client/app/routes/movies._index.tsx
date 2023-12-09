@@ -1,7 +1,7 @@
 import { useNavigate } from "@remix-run/react";
 import React, { useEffect, useState } from "react";
 import Navbar from "~/components/Navbar";
-import { MovieType, fetchMovies } from "~/components/utils/movies";
+import { MovieType, fetchMovies } from "~/utils/movies";
 
 const MoviesPage: React.FC = () => {
 

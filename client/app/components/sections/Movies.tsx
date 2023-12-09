@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "@remix-run/react";
 import left from "../../images/chevron-left.svg";
 import right from "../../images/chevron-right.svg";
-import {fetchMovies, MovieType } from "~/components/utils/movies";
+import {fetchMovies, MovieType } from "~/utils/movies";
 
 const Movies: React.FC = () => {
   const [movies, setMovies] = useState<MovieType[]>([]);

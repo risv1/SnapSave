@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "@remix-run/react";
 import left from "../../images/chevron-left.svg";
 import right from "../../images/chevron-right.svg";
-import {fetchSports, SportType } from "~/components/utils/sports";
+import {fetchSports, SportType } from "~/utils/sports";
 
 const Sports: React.FC = () => {
   const [sports, setSports] = useState<SportType[]>([]);
@@ -28,7 +28,7 @@ const Sports: React.FC = () => {
 
   const goToSport = useNavigate();
   const handleSportRoute = (id: string) => {
-    goToSport(`/movies/${id}`);
+    goToSport(`/sports/${id}`);
   };
 
   return (
@@ -49,7 +49,7 @@ const Sports: React.FC = () => {
             key={sport.id}
             src={sport.src}
             alt={sport.alt}
-            className="rounded-xl w-40 h-30 ease-in-out duration-200 border-4 hover:border-red-500 cursor-pointer"
+            className="rounded-xl w-60 h-48 border-4 ease-in-out duration-200 hover:border-red-500 cursor-pointer"
             onClick={() => handleSportRoute(sport.id)}
           />
         ))}

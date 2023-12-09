@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { fetchMovie, MovieType } from "~/components/utils/movies";
+import { fetchMovie, MovieType } from "~/utils/movies";
 
 const Movie: React.FC = () => {
   const { id } = useParams();

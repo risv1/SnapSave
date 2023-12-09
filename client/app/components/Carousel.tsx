@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import "../styles/carousel.css";
+import { useEffect, useRef, useState } from "react";
+import "~/styles/carousel.css";
 
 const colors = ["#0088FE", "#00C49F", "#FFBB28"];
 const delay = 3500;
