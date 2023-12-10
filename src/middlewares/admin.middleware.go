@@ -5,7 +5,7 @@ import (
 	"snap_save/src/db"
 	"snap_save/src/models"
 	"github.com/gofiber/fiber/v2"
-	"github.com/golang-jwt/jwt"
+	"github.com/dgrijalva/jwt-go"
 )
 
 var SecretKey = os.Getenv("JWT_SECRET_KEY")

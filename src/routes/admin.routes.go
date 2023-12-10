@@ -10,8 +10,15 @@ func AdminSetup(app *fiber.App) {
 
 	adminGroup := app.Group("/api/admin").Use(middlewares.IsAdmin)
 
-    adminGroup.Post("/add_movie", controllers.AddMovie)
-    adminGroup.Post("/add_sport", controllers.AddSport)
-    adminGroup.Get("/view_users", controllers.ViewUsers)
+    adminGroup.Post("/movies", controllers.AddMovie)
+    adminGroup.Post("/sports", controllers.AddSport)
+    adminGroup.Get("/users", controllers.ViewUsers)
+	adminGroup.Get("/users/:id", controllers.ViewUserByID)
+	adminGroup.Put("/users/:id", controllers.UpdateUser)
+	adminGroup.Put("/movies/:id", controllers.UpdateMovie)
+	adminGroup.Put("/sports/:id", controllers.UpdateSport)
+	adminGroup.Delete("/user/:id", controllers.DeleteUser)
+	adminGroup.Delete("/movies/:id", controllers.DeleteMovie)
+	adminGroup.Delete("/sports/:id", controllers.DeleteSport)
 
 }

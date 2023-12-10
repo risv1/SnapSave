@@ -90,6 +90,7 @@ func Login(c *fiber.Ctx) error {
 		Value: token,
 		Expires: time.Now().Add(24*time.Hour),
 		HTTPOnly: true,
+		SameSite: "None",
 	}
 
 	c.Cookie(&cookie)
