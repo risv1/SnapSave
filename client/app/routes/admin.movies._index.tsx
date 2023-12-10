@@ -50,8 +50,8 @@ const ManageMovies = () => {
     <>
       <Navbar />
       {isAdmin ? (
-        <div className="bg-neutral-300 w-full h-full flex items-center">
-          <div className="flex items-center flex-col w-full h-full">
+          <div className="bg-neutral-200 w-full h-full flex justify-center items-center">
+          <div className="flex items-center justify-center flex-col">
           <h1 className="text-3xl mt-5 font-bold">Manage Movies</h1>
           <Table className="w-4/6 h-full mt-8 bg-white">
             <TableCaption>All Movies</TableCaption>
@@ -86,7 +86,7 @@ const ManageMovies = () => {
                     <TableCell className="p-2">{movie.alt}</TableCell>
                     <TableCell className="p-2" colSpan={3}>{movie.description}</TableCell>
                     <TableCell className="p-2">
-                    <button onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleRoute(`/admin/${movie.id})`)} className="text-white text-base rounded p-1 w-16 bg-green-500 hover:bg-green-700">
+                    <button onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleRoute(`/admin/movies/${movie.id}`)} className="text-white text-base rounded p-1 w-16 bg-green-500 hover:bg-green-700">
                           Edit
                         </button>
                       <button className="text-white text-base rounded mt-2 p-1 w-16 bg-red-500 hover:bg-red-700">

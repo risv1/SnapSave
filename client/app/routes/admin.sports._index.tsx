@@ -9,7 +9,7 @@ import {
   } from "~/components/ui/table";
   
   import React, { useState, useEffect } from "react";
-  import { useNavigate } from "@remix-run/react"
+  import { NavigateFunction, useNavigate } from "react-router";
   import { checkUserRole } from "~/utils/users";
   import Navbar from "~/components/Navbar";
   import { SportType, fetchSports } from "~/utils/sports";
@@ -50,8 +50,8 @@ import {
       <>
         <Navbar />
         {isAdmin ? (
-          <div className="bg-neutral-300 w-full h-full flex items-center">
-            <div className="flex items-center flex-col">
+         <div className="bg-neutral-200 w-full h-full flex justify-center items-center">
+         <div className="flex items-center justify-center flex-col">
             <h1 className="text-3xl mt-5 font-bold">Manage Sports</h1>
             <Table className="w-10/12 mt-8 bg-white">
               <TableCaption>All Sports</TableCaption>
@@ -86,7 +86,7 @@ import {
                       <TableCell className="p-2">{sport.alt}</TableCell>
                       <TableCell className="p-2" colSpan={3}>{sport.description}</TableCell>
                       <TableCell className="p-2">
-                      <button onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleRoute(`/admin/${sport.id})`)} className="text-white text-base rounded p-1 w-16 bg-green-500 hover:bg-green-700">
+                      <button onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleRoute(`/admin/sports/${sport.id}`)} className="text-white text-base rounded p-1 w-16 bg-green-500 hover:bg-green-700">
                           Edit
                         </button>
                         <button className="text-white text-base rounded mt-2 p-1 w-16 bg-red-500 hover:bg-red-700">
