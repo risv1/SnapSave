@@ -48,7 +48,7 @@ export const checkUserLoggedIn = async() => {
 }
 
 export const fetchUsers = async() => {
-    const res = await fetch("http://localhost:8000/api/admin/view-users", {
+    const res = await fetch("http://localhost:8000/api/admin/users", {
         method: "GET",
         headers: {"Content-Type": "application/json"},
         credentials: "include"
